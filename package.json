@@ -4,7 +4,7 @@
   "type": "module",
   "main": "dist/verifier.cjs",
   "module": "dist/verifier.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
