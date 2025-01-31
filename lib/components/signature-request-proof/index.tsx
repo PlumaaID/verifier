@@ -67,7 +67,7 @@ const SignatureRequestProof: FC<Props> = ({ proof, ...props }) => {
 
   return (
     <div>
-      <ThemeProvider defaultTheme="light" storageKey="plumaa-id-verifier-theme">
+      <ThemeProvider storageKey="plumaa-id-verifier-theme">
         <Card {...props}>
           <CardHeader>
             <CardTitle>Pericial de {proof.name}</CardTitle>

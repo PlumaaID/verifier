@@ -94,7 +94,7 @@ const SignatureProof: FC<Props> = ({ proof }) => {
   );
 
   return (
-    <ThemeProvider defaultTheme="light" storageKey="plumaa-id-verifier-theme">
+    <ThemeProvider storageKey="plumaa-id-verifier-theme">
       <Card className="my-2">
         <CardHeader>
           <CardTitle>Pericial de Firma Electrónica Avanzada</CardTitle>
