@@ -5,7 +5,11 @@
   "main": "dist/verifier.cjs",
   "module": "dist/verifier.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "prepare": "npm run build",
     "dev": "vite",
     "build": "tsc --p ./tsconfig.build.json && vite build",
     "lint": "eslint .",

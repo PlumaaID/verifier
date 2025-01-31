@@ -39,7 +39,7 @@ export default defineConfig({
       formats: ["es", "cjs"],
     },
     rollupOptions: {
-      external: ["react", "react/jsx-runtime", "ocsp"],
+      external: ["react", "react/jsx-runtime", "ocsp", "node-forge"],
     },
   },
 });
