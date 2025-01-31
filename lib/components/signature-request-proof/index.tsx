@@ -6,7 +6,7 @@ import {
   useMemo,
   useState,
 } from "react";
-import type { SignatureRequestProof as SignatureRequestProofType } from "../../types";
+import type { SignatureRequestProofJSON } from "../../types";
 import { SignatureProof } from "../signature-proof";
 import { Button } from "../ui/button";
 import { Check, DownloadIcon, Info, InfoIcon, X } from "lucide-react";
@@ -32,11 +32,14 @@ import {
 import Conservation from "../conservation";
 import { ThemeProvider } from "../theme-provider";
 
-interface Props extends ComponentProps<typeof Card> {
-  proof: SignatureRequestProofType;
+interface SignatureRequestProofProps extends ComponentProps<typeof Card> {
+  proof: SignatureRequestProofJSON;
 }
 
-const SignatureRequestProof: FC<Props> = ({ proof, ...props }) => {
+const SignatureRequestProof: FC<SignatureRequestProofProps> = ({
+  proof,
+  ...props
+}) => {
   const [NOM151CertificateASN1, setNOM151CertificateASN1] = useState<string>();
   const isValidHash = useMemo(() => {
     const calculatedHash = md.sha256

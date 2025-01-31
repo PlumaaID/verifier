@@ -12,8 +12,7 @@ export default defineConfig({
     react(),
     dts({
       include: ["lib"],
-      rollupTypes: true,
-      tsconfigPath: "./tsconfig.build.json",
+      tsconfigPath: "./tsconfig.app.json",
     }),
     libInjectCss(),
     nodePolyfills(),

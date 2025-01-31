@@ -1,52 +1,52 @@
 type Hex = `0x${string}`; // viem
 type Base64 = string; // node-forge
 
-export type Proof = SignatureRequestProof | SignatureProof;
+export type Proof = SignatureRequestProofJSON | SignatureProofJSON;
 
 export enum HashingAlgorithm {
   SHA256,
 }
 
-interface Conservation {
+type Conservation = {
   nom151?: NOM151Conservation;
   merkleized?: MerkleizedConservation;
   witnessCo?: WitnessCoConservation;
-}
+};
 
-export interface SignatureRequestProof {
+export type SignatureRequestProofJSON = {
   name: string;
   mediatype: string;
   raw: Base64;
   algorithm: HashingAlgorithm;
   hash: Hex;
   conservation: Conservation;
-  signatures: SignatureProof[];
-}
+  signatures: SignatureProofJSON[];
+};
 
-export interface NOM151Conservation {
+export type NOM151Conservation = {
   provider: string;
-}
+};
 
-export interface MerkleizedConservation {
+export type MerkleizedConservation = {
   merkleRoot: Hex;
   merkleProof: Hex[];
   conservation: NOM151Conservation;
   algorithm: string;
-}
+};
 
-export interface WitnessCoConservation {
+export type WitnessCoConservation = {
   timestamp: string;
   leafIndex: number;
   leftHashes: Hex[];
   rightHashes: Hex[];
   targetRootHash: Hex;
-}
+};
 
-export interface SignatureProof {
+export type SignatureProofJSON = {
   signature: Base64;
   ocspResponse: Base64;
   certificate: Base64;
   conservation: Conservation;
   signatureHash: Hex;
   hash: Hex;
-}
+};

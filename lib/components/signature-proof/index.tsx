@@ -1,7 +1,14 @@
 import { Check, DownloadIcon, InfoIcon, X } from "lucide-react";
 import { util, pki, md } from "node-forge";
 import { BasicOCSPResponse, OCSPResponse, SingleResponse } from "pkijs";
-import { FC, useCallback, useEffect, useMemo, useState } from "react";
+import {
+  ComponentProps,
+  FC,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import JsonView from "react18-json-view";
 import Conservation from "../conservation";
 import { Button } from "../ui/button";
@@ -24,15 +31,15 @@ import {
 import { downloadFile } from "../../lib/files";
 import { getNOM151CertificateAsn1 } from "../../lib/nom151";
 import { simpleCertStatusDecode } from "../../lib/ocsp";
-import { without0x } from "../../lib/utils";
-import type { SignatureProof as SignatureProofType } from "../../types";
+import { cn, without0x } from "../../lib/utils";
+import type { SignatureProofJSON } from "../../types";
 import { ThemeProvider } from "../theme-provider";
 
-interface Props {
-  proof: SignatureProofType;
+interface SignatureProofProps extends ComponentProps<typeof Card> {
+  proof: SignatureProofJSON;
 }
 
-const SignatureProof: FC<Props> = ({ proof }) => {
+const SignatureProof: FC<SignatureProofProps> = ({ proof, ...props }) => {
   const certificate = useMemo(() => {
     return pki.certificateFromPem(util.decode64(proof.certificate));
   }, [proof.certificate]);
@@ -95,7 +102,7 @@ const SignatureProof: FC<Props> = ({ proof }) => {
 
   return (
     <ThemeProvider storageKey="plumaa-id-verifier-theme">
-      <Card className="my-2">
+      <Card className={cn("my-2", props.className)} {...props}>
         <CardHeader>
           <CardTitle>Pericial de Firma Electrónica Avanzada</CardTitle>
           <CardDescription>

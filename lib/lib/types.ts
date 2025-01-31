@@ -1,8 +1,8 @@
-import { Proof, SignatureProof, SignatureRequestProof } from "../types";
+import { Proof, SignatureProofJSON, SignatureRequestProofJSON } from "../types";
 
 export const isSignatureRequestProof = (
   proof: Proof
-): proof is SignatureRequestProof => !isSignatureProof(proof);
+): proof is SignatureRequestProofJSON => !isSignatureProof(proof);
 
-export const isSignatureProof = (proof: Proof): proof is SignatureProof =>
+export const isSignatureProof = (proof: Proof): proof is SignatureProofJSON =>
   "signature" in proof;
