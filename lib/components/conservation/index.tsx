@@ -94,7 +94,7 @@ const Conservation: FC<Props> = ({ proof, NOM151CertificateASN1 }) => {
   }, [proof.conservation.merkleized, hash]);
 
   return (
-    <>
+    <div className="flex flex-col gap-4">
       {proof.conservation.nom151 && (
         <Card>
           <CardHeader>
@@ -104,7 +104,7 @@ const Conservation: FC<Props> = ({ proof, NOM151CertificateASN1 }) => {
               Servicios de Certificación (PSC) de acuerdo a la NOM-151.
             </CardDescription>
           </CardHeader>
-          <CardContent className="flex grow items-center justify-between py-3">
+          <CardContent className="flex grow items-center justify-between py-3 gap-3">
             <p className="text-lg font-semibold tracking-tight my-auto">
               PSC {proof.conservation?.nom151?.provider}
             </p>
@@ -128,7 +128,7 @@ const Conservation: FC<Props> = ({ proof, NOM151CertificateASN1 }) => {
             </Button>
           </CardContent>
           <Separator />
-          <CardContent className="flex grow items-center justify-between py-3">
+          <CardContent className="flex grow items-center justify-between py-3 gap-3">
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger className="flex items-center">
@@ -181,7 +181,7 @@ const Conservation: FC<Props> = ({ proof, NOM151CertificateASN1 }) => {
               integridad del documento.
             </CardDescription>
           </CardHeader>
-          <CardContent className="flex grow items-center justify-between py-3">
+          <CardContent className="flex grow items-center justify-between py-3 gap-3">
             <p className="m-0 font-bold">Raíz de Merkle</p>
             <div className="grid grid-cols-4 grid-flow-row gap-4 justify-right">
               <Gradient
@@ -191,7 +191,7 @@ const Conservation: FC<Props> = ({ proof, NOM151CertificateASN1 }) => {
             </div>
           </CardContent>
           <Separator />
-          <CardContent className="flex grow items-center justify-between py-3">
+          <CardContent className="flex grow items-center justify-between py-3 gap-3">
             <p className="m-0 font-bold">Prueba de Merkle</p>
             <div className="grid grid-cols-4 grid-flow-row gap-4 justify-right">
               {proof.conservation.merkleized.merkleProof?.map((node) => (
@@ -204,7 +204,7 @@ const Conservation: FC<Props> = ({ proof, NOM151CertificateASN1 }) => {
             </div>
           </CardContent>
           <Separator />
-          <CardContent className="flex grow items-center justify-between py-3">
+          <CardContent className="flex grow items-center justify-between py-3 gap-3">
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger className="flex items-center">
@@ -246,7 +246,7 @@ const Conservation: FC<Props> = ({ proof, NOM151CertificateASN1 }) => {
               </a>{" "}
             </CardDescription>
           </CardHeader>
-          <CardContent className="flex grow items-center justify-between py-3">
+          <CardContent className="flex grow items-center justify-between py-3 gap-3">
             <p className="m-0 font-bold">Índice</p>
             {proof.conservation.witnessCo.leafIndex && (
               <Badge variant="outline">
@@ -255,7 +255,7 @@ const Conservation: FC<Props> = ({ proof, NOM151CertificateASN1 }) => {
             )}
           </CardContent>
           <Separator />
-          <CardContent className="flex grow items-center justify-between py-3">
+          <CardContent className="flex grow items-center justify-between py-3 gap-3">
             <p className="m-0 font-bold">Digestivos izquierdos</p>
             <div className="grid grid-cols-6 grid-flow-row gap-4 justify-right">
               {proof.conservation.witnessCo?.leftHashes?.map((node) => (
@@ -268,7 +268,7 @@ const Conservation: FC<Props> = ({ proof, NOM151CertificateASN1 }) => {
             </div>
           </CardContent>
           <Separator />
-          <CardContent className="flex grow items-center justify-between py-3">
+          <CardContent className="flex grow items-center justify-between py-3 gap-3">
             <p className="m-0 font-bold">Digestivos derechos</p>
             <div className="grid grid-cols-6 grid-flow-row gap-4 justify-right">
               {proof.conservation.witnessCo?.rightHashes?.map((node) => (
@@ -281,7 +281,7 @@ const Conservation: FC<Props> = ({ proof, NOM151CertificateASN1 }) => {
             </div>
           </CardContent>
           <Separator />
-          <CardContent className="flex grow items-center justify-between py-3">
+          <CardContent className="flex grow items-center justify-between py-3 gap-3">
             <p className="m-0 font-bold">Digestivo raíz</p>
             {proof.conservation.witnessCo?.targetRootHash && (
               <Gradient
@@ -291,7 +291,7 @@ const Conservation: FC<Props> = ({ proof, NOM151CertificateASN1 }) => {
             )}
           </CardContent>
           <Separator />
-          <CardContent className="flex grow items-center justify-between py-3">
+          <CardContent className="flex grow items-center justify-between py-3 gap-3">
             <p className="m-0 font-bold">Prueba</p>
             <Button variant="secondary" size="sm" asChild>
               <a
@@ -310,7 +310,7 @@ const Conservation: FC<Props> = ({ proof, NOM151CertificateASN1 }) => {
           </CardContent>
         </Card>
       )}
-    </>
+    </div>
   );
 };
 

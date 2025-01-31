@@ -4,6 +4,7 @@
   "type": "module",
   "main": "dist/verifier.cjs",
   "module": "dist/verifier.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc --p ./tsconfig.build.json && vite build",

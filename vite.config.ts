@@ -10,7 +10,11 @@ import { nodePolyfills } from "vite-plugin-node-polyfills";
 export default defineConfig({
   plugins: [
     react(),
-    dts({ include: ["lib"], rollupTypes: true }),
+    dts({
+      include: ["lib"],
+      rollupTypes: true,
+      tsconfigPath: "./tsconfig.build.json",
+    }),
     libInjectCss(),
     nodePolyfills(),
     svgr({

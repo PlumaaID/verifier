@@ -1,8 +1,4 @@
 {
-  "extends": "./tsconfig.json",
-  "include": ["lib"],
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "noEmit": true
-  }
+  "extends": "./tsconfig.app.json",
+  "include": ["lib"]
 }
